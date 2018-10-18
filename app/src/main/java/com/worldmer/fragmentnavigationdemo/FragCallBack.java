@@ -9,4 +9,5 @@ import android.view.View;
 public interface FragCallBack {
 
     void onFragWidgetClick(String tag,String msg);
+    void onFragBack(String tag);
 }

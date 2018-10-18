@@ -15,7 +15,7 @@ import android.widget.Toast;
  * Created by Yagnik on 14-Oct-18.
  */
 
-public class FragD extends Fragment {
+public class FragD extends Fragment implements FragBackPressed {
 
     FragCallBack callBack;
     TextView text;
@@ -96,6 +96,10 @@ public class FragD extends Fragment {
                 }
             }
         });
+    }
+    @Override
+    public void onBackSelected() {
+        callBack.onFragBack(MainActivity.TAG_FRAG_D);
     }
 
 }

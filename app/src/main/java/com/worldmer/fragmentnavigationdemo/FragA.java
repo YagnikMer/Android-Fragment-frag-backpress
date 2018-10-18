@@ -15,14 +15,13 @@ import android.widget.Toast;
  * Created by Yagnik on 14-Oct-18.
  */
 
-public class FragA extends Fragment {
+public class FragA extends Fragment implements FragBackPressed{
 
     FragCallBack callBack;
     TextView text;
     EditText edit;
     Button btn1,btn2,btn3;
     String msg ;
-    int requestID;
 
     @Override
     public void onAttach(Context context) {
@@ -45,7 +44,6 @@ public class FragA extends Fragment {
         btn3 = view.findViewById(R.id.btn3);
         try {
             msg = getArguments().getString("msg");
-            requestID = getArguments().getInt("code");
         } catch (Exception e) {
         }
         if (null != msg) {
@@ -96,5 +94,10 @@ public class FragA extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackSelected() {
+        callBack.onFragBack(MainActivity.TAG_FRAG_A);
     }
 }
